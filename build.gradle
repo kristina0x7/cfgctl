@@ -18,28 +18,20 @@ application {
     mainClass = 'cfgctl.cli.DeployCommand'
 }
 
-// --- Fixed tasks for StatusCommand and RollbackCommand ---
 
-tasks.register('status') {
+tasks.register('status', JavaExec) {
     group = 'cfgctl'
     description = 'Show current deployed commit for an environment'
-    doLast {
-        project.javaexec {
-            mainClass.set('cfgctl.cli.StatusCommand')
-            classpath = sourceSets.main.runtimeClasspath
-            args = ['prod'] // you can later make this dynamic
-        }
-    }
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass.set('cfgctl.cli.StatusCommand')
+    args = ['prod']
 }
 
-tasks.register('rollback') {
+
+tasks.register('rollback', JavaExec) {
     group = 'cfgctl'
     description = 'Rollback an environment to a previous commit'
-    doLast {
-        project.javaexec {
-            mainClass.set('cfgctl.cli.RollbackCommand')
-            classpath = sourceSets.main.runtimeClasspath
-            args = ['prod', '1686fac452317c97f1cb22d7521c2e5cdbdb6864'] // replace commit as needed
-        }
-    }
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass.set('cfgctl.cli.RollbackCommand')
+    args = ['prod', '1686fac452317c97f1cb22d7521c2e5cdbdb6864']
 }
