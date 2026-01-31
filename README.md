@@ -30,7 +30,7 @@ cd cfgctl
 ---
 ###### *Always commit changes in Git before deploying, otherwise rollback cannot reference the commit hash.*
 ###### *You can manage multiple environments (dev/, staging/, prod/) independently.*
-###### *YAML files conmtain any configuration - Docker Compose, service settings, API keys etc.*
+###### *YAML files can contain any configuration - Docker Compose, service settings, API keys etc.*
 ###### *You can manage multiple environments (dev/, staging/, prod/) independently.*
 ---
 
