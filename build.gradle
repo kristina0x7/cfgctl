@@ -15,5 +15,34 @@ dependencies {
 }
 
 application {
+    // The default main class when running ./gradlew run
     mainClass = 'cfgctl.cli.DeployCommand'
 }
+
+// --- Extra Gradle tasks for other CLI commands ---
+
+tasks.register('status') {
+    group = 'cfgctl'
+    description = 'Show current deployed commit for an environment'
+    doLast {
+        javaexec {
+            main = 'cfgctl.cli.StatusCommand'
+            classpath = sourceSets.main.runtimeClasspath
+            args = ['prod'] // you can change 'prod' to any environment
+        }
+    }
+}
+
+tasks.register('rollback') {
+    group = 'cfgctl'
+    description = 'Rollback an environment to a previous commit'
+    doLast {
+        javaexec {
+            main = 'cfgctl.cli.RollbackCommand'
+            classpath = sourceSets.main.runtimeClasspath
+            args = ['prod', '1686fac452317c97f1cb22d7521c2e5cdbdb6864'] // replace commit with the one you want
+        }
+    }
+}
+
+
