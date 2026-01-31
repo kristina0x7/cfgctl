@@ -22,3 +22,21 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 replay_pid*
+
+# cfgctl runtime files
+.active-prod
+.active-dev
+*.local.yaml
+
+# IDE folders
+.idea/
+*.iml
+*.iws
+.vscode/
+.settings/
+
+# Build directories
+/out/
+build/
+.gradle/
+target/
