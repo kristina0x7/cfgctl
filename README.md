@@ -1,6 +1,6 @@
-# cfgctl - config control
+## cfgctl - config control
 
-Config-as-Code backend written in Java with Gradle, using Git as the source of truth. This tool helps you deploy, track, and rollback configuration files for different environments (prod/dev/staging) in a structured way.
+#### Config-as-Code backend written in Java with Gradle, using Git as the source of truth. This tool helps you deploy, track, and rollback configuration files for different environments (prod/dev/staging) in a structured way.
 
 
 ###### **Gradle installed (or use the wrapper ./gradlew)**
