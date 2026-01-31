@@ -22,7 +22,7 @@ cd cfgctl
 ./gradlew status
 ``
 
-###### Rollback to a previous commit: Restores .active-<env> to the previous commit hash.
+###### Rollback to a previous commit: Restores .active-<env> to the previous commit hash. (Does not automatically change, use Git commands)
 ``
 ./gradlew rollback
 ``
