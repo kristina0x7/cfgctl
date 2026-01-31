@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'cfgctl'
+version = '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.yaml:snakeyaml:2.0'
+}
+
+application {
+    mainClass = 'cfgctl.cli.DeployCommand'
+}
+
+
+tasks.register('status', JavaExec) {
+    group = 'cfgctl'
+    description = 'Show current deployed commit for an environment'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass.set('cfgctl.cli.StatusCommand')
+    args = ['prod']
+}
+
+
+tasks.register('rollback', JavaExec) {
+    group = 'cfgctl'
+    description = 'Rollback an environment to a previous commit'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass.set('cfgctl.cli.RollbackCommand')
+    args = ['prod', '1686fac452317c97f1cb22d7521c2e5cdbdb6864']
+}
